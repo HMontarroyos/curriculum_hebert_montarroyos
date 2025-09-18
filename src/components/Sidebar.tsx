@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate }) => {
               <img
                 src={avatar}
                 alt="Hebert Montarroyos"
-                className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/20"
+                className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-tertiary"
               />
             </div>
           </div>
@@ -55,11 +55,13 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate }) => {
               <li key={item.href}>
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium tracking-wider transition-all duration-200 hover:bg-white/10 ${
-                    activeSection === item.href
-                      ? "bg-white/20 text-white border-l-4 border-white"
-                      : "text-white/80"
-                  }`}
+                  className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium tracking-wider transition-all duration-200 
+      hover:bg-tertiary/20
+      ${
+        activeSection === item.href
+          ? "bg-tertiary text-tertiary-foreground border-l-4 border-tertiary"
+          : "text-white/80"
+      }`}
                 >
                   {item.content}
                 </button>

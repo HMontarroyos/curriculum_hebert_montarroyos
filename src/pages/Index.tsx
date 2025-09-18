@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Github, Linkedin, Facebook, CheckCircle, Trophy } from "lucide-react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaFacebook,
+  FaCheckCircle,
+  FaTrophy,
+} from "react-icons/fa";
 import Sidebar from "../components/Sidebar";
 import Section from "../components/Section";
 import TechIcon from "../components/TechIcon";
 import { Button } from "../components/ui/button";
+import { CheckCircle, Trophy } from "lucide-react";
+import SocialIcons from "@/components/SocialIcons";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("about");
@@ -13,11 +21,6 @@ const Index = () => {
     lastName: "MONTARROYOS",
     address: "RIO DE JANEIRO, BRASIL",
     email: "hebertmontarroyos@hotmail.com",
-    socialLinks: [
-      { icon: "fa-github", url: "https://github.com", component: Github },
-      { icon: "fa-linkedin", url: "https://linkedin.com", component: Linkedin },
-      { icon: "fa-facebook", url: "https://facebook.com", component: Facebook },
-    ],
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -61,10 +64,11 @@ const Index = () => {
         <Section id="about">
           <div className="space-y-8">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-portfolio-text mb-4">
-                {config.firstName}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                <span className="text-tertiary">{config.firstName}</span>
                 <span className="text-primary">{config.lastName}</span>
               </h1>
+
               <div className="text-xl text-portfolio-text-muted mb-8 tracking-wide">
                 {config.address} ·{" "}
                 <a
@@ -88,22 +92,7 @@ const Index = () => {
               evoluir cada vez mais.
             </p>
 
-            <div className="flex space-x-4">
-              {config.socialLinks.map((social, index) => {
-                const IconComponent = social.component;
-                return (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-portfolio-text/10 hover:bg-primary text-portfolio-text hover:text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  >
-                    <IconComponent className="w-6 h-6" />
-                  </a>
-                );
-              })}
-            </div>
+            <SocialIcons />
           </div>
         </Section>
         <Section id="experience" className="bg-portfolio-content">
@@ -352,11 +341,16 @@ const Index = () => {
                   {[
                     "html5",
                     "css3",
-                    "sass",
                     "javascript",
                     "react",
+                    "nextjs",
+                    "gatsby",
+                    "jest",
+                    "typescript",
                     "nodejs",
-                    "npm",
+                    "express",
+                    "mysql",
+                    "mongodb",
                     "docker",
                   ].map((tech) => (
                     <TechIcon

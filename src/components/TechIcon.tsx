@@ -7,7 +7,17 @@ import {
   FaNodeJs,
   FaNpm,
 } from "react-icons/fa";
-import { SiJavascript, SiDocker } from "react-icons/si";
+import {
+  SiJavascript,
+  SiDocker,
+  SiNextdotjs,
+  SiGatsby,
+  SiTypescript,
+  SiExpress,
+  SiMysql,
+  SiMongodb,
+  SiJest,
+} from "react-icons/si";
 
 interface TechIconProps {
   name: string;
@@ -20,7 +30,14 @@ const iconsMap: Record<string, React.ElementType> = {
   sass: FaSass,
   javascript: SiJavascript,
   react: FaReact,
+  nextjs: SiNextdotjs,
+  gatsby: SiGatsby,
+  jest: SiJest,
+  typescript: SiTypescript,
   nodejs: FaNodeJs,
+  express: SiExpress,
+  mysql: SiMysql,
+  mongodb: SiMongodb,
   npm: FaNpm,
   docker: SiDocker,
 };
