@@ -12,10 +12,16 @@ import TechIcon from "../components/TechIcon";
 import { Button } from "../components/ui/button";
 import { CheckCircle, Trophy } from "lucide-react";
 import SocialIcons from "@/components/SocialIcons";
+import { experiences } from "@/data/experiences";
+import { education } from "@/data/education";
+import { areas } from "@/data/areas";
+import { awards } from "@/data/awards";
+import { calculateAge } from "@/utils";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("about");
-
+  const birthDate = new Date('1996-06-14');
+  const age = calculateAge(birthDate);
   const config = {
     firstName: "HEBERT ",
     lastName: "MONTARROYOS",
@@ -81,15 +87,22 @@ const Index = () => {
             </div>
 
             <p className="text-lg leading-relaxed text-portfolio-text-muted max-w-4xl">
-              Me chamo Hebert Matheus Montarroyos Pinho, Natural do Rio de
-              Janeiro, Nascido em 14/06/1996. Apaixonado por tudo que envolve
-              tecnologia e áreas afins, sempre busco novos conhecimentos e
-              aprimorar-me minhas competências a cada dia. Sempre dedicado à
-              vida acadêmica, fazendo cursos extracurriculares na área de
-              programação para sempre estar atualizado no setor. Sempre
-              Comprometido com meus estudos e com um perfil bem analítico na
-              tomada de decisões, além de focado em mostrar resultados e sempre
-              evoluir cada vez mais.
+              Muito prazer me chamo Hebert Matheus Montarroyos Pinho, natural do
+              Rio de Janeiro, atualmente com 29 anos. Como desenvolvedor de
+              software sou especializado no front-end, também tenho experiência no
+              desenvolvimento back-end. Gosto de metodologias ágeis afim de
+              organizar a entrega, especialmente o Scrum, e adoro trabalhar em
+              equipe. Possuo sólidos conhecimentos em Javascript. Tenho
+              experiência no desenvolvimento de aplicações front-end utilizando
+              do framework React, além de trabalhar no back-end quando
+              necessário com o Nodejs, possuo interesse em melhores práticas de
+              desenvolvimento. Sou uma pessoa descontraída, o que facilita a
+              interação e a colaboração com colegas. Procuro sempre me manter
+              atualizado com as tendências e avanços tecnológicos, buscando
+              aprimorar minhas habilidades constantemente. Sou apaixonado pela
+              criação de interfaces e pela experiência do usuário a quais também
+              mantenho um estudo em particular. Estou sempre buscando contribuir
+              com meu conhecimento e criatividade em projetos desafiadores.
             </p>
 
             <SocialIcons />
@@ -102,108 +115,34 @@ const Index = () => {
             </h2>
 
             <div className="space-y-12">
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Analista de Desenvolvimento
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Calindra
+              {experiences.map((exp, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0"
+                >
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
+                      {exp.title}
+                    </h3>
+                    <div className="text-lg text-primary font-medium mb-4">
+                      {exp.company}
+                    </div>
+                    <ul className="space-y-2 text-portfolio-text-muted">
+                      {exp.tasks.map((task, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                          {task}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2 text-portfolio-text-muted">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Desenvolvedor Front-end.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Auxiliava com tarefas no Back-end para integrar as
-                      interfaces com a lógica de negócio.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Utilizava de frameworks e bibliotecas populares, como
-                      React no front e NodeJS no back-end.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Integração de APIs de terceiros para fornecer recursos
-                      adicionais aos aplicativos.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Otimização de desempenho de sites e aplicativos para
-                      garantir uma experiência do usuário ágil.
-                    </li>
-                  </ul>
-                </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    Agosto 2020 - Maio 2023
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Trainee em Tecnologia
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Volanty
+                  <div className="lg:text-right">
+                    <span className="text-primary font-medium text-lg">
+                      {exp.period}
+                    </span>
                   </div>
-                  <ul className="space-y-2 text-portfolio-text-muted">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Programa de Desenvolvimento Full Stack.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Abordado diversos tipos de tecnologias em diferentes
-                      Stacks tendo a vivência prática e teórica.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Algumas das Stacks abordadas: Front-end, Back-end, Mobile,
-                      Análise de dados entre outras.
-                    </li>
-                  </ul>
                 </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    Fevereiro 2020 - Agosto 2020
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Suporte Técnico
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Mls Wireless
-                  </div>
-                  <ul className="space-y-2 text-portfolio-text-muted">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Configuração de redes em ambiente windows e linux.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Suporte técnico telefônico. Abertura e retorno de
-                      chamados.
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                      Suporte técnico interno.
-                    </li>
-                  </ul>
-                </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    Setembro 2018 - Fevereiro 2020
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </Section>
@@ -214,115 +153,43 @@ const Index = () => {
             </h2>
 
             <div className="space-y-12">
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Faculdade Unyleya
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Pós-graduação Lato Sensu: Engenharia de Software
+              {education.map((edu, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0"
+                >
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
+                      {edu.institution}
+                    </h3>
+                    <div className="text-lg text-primary font-medium mb-4">
+                      {edu.degree}
+                    </div>
+
+                    <div className="text-portfolio-text-muted space-y-3">
+                      {edu.highlight && (
+                        <p>
+                          <strong>{edu.highlight}</strong>
+                        </p>
+                      )}
+                      {edu.description && <p>{edu.description}</p>}
+                      {edu.details && (
+                        <ul className="space-y-1 ml-4">
+                          {edu.details.map((item, i) => (
+                            <li key={i}>• {item}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
-                  <div className="text-portfolio-text-muted space-y-3">
-                    <p>
-                      A Pós-graduação em Engenharia de Software, faz promover a
-                      formação de recursos humanos para atuar nas diferentes
-                      áreas do conhecimento humano, de modo a atender às
-                      demandas da sociedade, utilizando as modernas tecnologias.
-                    </p>
-                    <p>
-                      Entre as principais atribuições do engenheiro de software,
-                      estão:
-                    </p>
-                    <ul className="space-y-1 ml-4">
-                      <li>• Desenvolver softwares e apps</li>
-                      <li>• Gerenciar projetos ligados aos softwares</li>
-                      <li>• Arquitetar o design estrutural dos programas</li>
-                      <li>• Realizar testes nos sistemas</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    2020 - 2021
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Centro Universitário UniDombosco
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Graduação: Sistemas para Internet (ênfase em Internet das
-                    Coisas)
-                  </div>
-                  <div className="text-portfolio-text-muted space-y-3">
-                    <p>
-                      <strong>CR 8,07</strong>
-                    </p>
-                    <p>
-                      O profissional formado em Sistema para Internet é
-                      responsável em desenvolver, implementar e gerenciar sites
-                      para internet, aplicativos, e-commerces, além de
-                      configurar hardwares e softwares e promover a segurança do
-                      sistema.
-                    </p>
+
+                  <div className="lg:text-right">
+                    <span className="text-primary font-medium text-lg">
+                      {edu.period}
+                    </span>
                   </div>
                 </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    2019 - 2021
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Universidade Estácio de Sá
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Graduação: Análise e Desenvolvimento de Sistemas
-                  </div>
-                  <div className="text-portfolio-text-muted space-y-3">
-                    <p>
-                      <strong>CR 8,87</strong>
-                    </p>
-                    <p>
-                      O Curso Superior de Tecnologia em Análise e
-                      Desenvolvimento de Sistemas visa capacitar o profissional
-                      a desenvolver, analisar, projetar e implantar sistemas de
-                      informação.
-                    </p>
-                  </div>
-                </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    2018 - 2020
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-4 lg:space-y-0">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-portfolio-text mb-2">
-                    Centro Universitário UniCarioca
-                  </h3>
-                  <div className="text-lg text-primary font-medium mb-4">
-                    Técnico em Programação de Jogos Digitais
-                  </div>
-                  <div className="text-portfolio-text-muted">
-                    <p>
-                      O Curso Técnico de Programação de Jogos Digitais engloba
-                      desenvolvimento de recursos, ambientes, objetos e modelos
-                      utilizando a engine Unity 3D.
-                    </p>
-                  </div>
-                </div>
-                <div className="lg:text-right">
-                  <span className="text-primary font-medium text-lg">
-                    2014 - 2015
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </Section>
@@ -366,11 +233,15 @@ const Index = () => {
                 <h3 className="text-2xl font-semibold text-portfolio-text-muted mb-6 tracking-wide">
                   ÁREA DE ATUAÇÃO
                 </h3>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-primary" />
-                  <span className="text-lg text-portfolio-text">
-                    Desenvolvedor Front-End
-                  </span>
+                <div className="space-y-3">
+                  {areas.map((area, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                      <span className="text-lg text-portfolio-text">
+                        {area.name}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -384,22 +255,35 @@ const Index = () => {
 
             <div className="space-y-6 text-lg leading-relaxed text-portfolio-text-muted">
               <p>
-                Além de amante da Tecnologia e Desenvolvedor Front-End, sou um
-                entusiasta das artes e história além de amar lutar. Apaixonado
-                por Artes Marciais sou praticante de Sanda(Boxe Chinês) e
-                Aikido. Sou aficionado por novas tecnologias, sempre no tempo
-                livre estou estudando ou lendo algum livro afim com o intuito de
-                aperfeiçoar e aprender uma nova stack.
+                Além de ser um amante da tecnologia e atuar como desenvolvedor
+                Front-End, sou também um entusiasta das artes e da história, com
+                uma paixão especial pelas artes marciais. Pratico Sanda (Boxe
+                Chinês) e Aikidô, disciplinas que me ensinaram disciplina, foco
+                e equilíbrio, valores que levo também para minha vida
+                profissional.
               </p>
-
               <p>
-                Sempre colocando cada conhecimento em prática seja por projetos
-                próprios no Github ou por certificados de Cursos e palestras
-                online. Jamais esqueço dos soft skills, para isso sempre assisto
-                palestras e leio livros de Desenvolvimento Pessoal sempre
-                anotando e corrigindo possíveis pontos fracos no dia a dia.
-                Buscando sempre a aprender e me tornar um ser humano melhor
-                podendo contribuir ainda mais com o mundo.
+                Apaixonado por inovação, estou sempre em busca de novos
+                aprendizados: no tempo livre estudo, leio livros e exploro novas
+                stacks, colocando em prática cada conhecimento adquirido, seja
+                em projetos pessoais no GitHub ou em cursos e palestras online,
+                que somam certificações ao meu crescimento. Também valorizo
+                profundamente os soft skills.
+              </p>
+              <p>
+                Por isso, dedico parte da minha rotina a palestras e leituras de
+                desenvolvimento pessoal, sempre registrando insights e ajustando
+                pontos de melhoria. Meu objetivo é evoluir continuamente, não
+                apenas como profissional, mas também como ser humano,
+                contribuindo de forma significativa com o mundo ao meu redor.
+              </p>
+              <p>
+                Além da tecnologia, tenho outro grande amor: o RPG. Sou Mestre
+                de RPG e fundador de uma iniciativa chamada de Tecno Forja RPG
+                que reúne mestres e jogadores, promovendo inclusão, diversão e
+                aprendizado. Através dessa comunidade, já realizamos diversas
+                ações sociais, levando o RPG como ferramenta de criatividade,
+                empatia e integração para todos.
               </p>
             </div>
           </div>
@@ -410,13 +294,18 @@ const Index = () => {
               PRÊMIOS & CERTIFICAÇÕES
             </h2>
 
-            <div className="flex items-start space-x-4">
-              <Trophy className="w-8 h-8 text-yellow-500 mt-1 flex-shrink-0" />
-              <p className="text-lg text-portfolio-text-muted leading-relaxed">
-                Participei em 2015 do Projeto Rio Ideias +450 o qual fiquei
-                entre as 30 primeiros colocados com suas ideias de aplicativos
-                para a cidade do Rio de Janeiro.
-              </p>
+            <div className="space-y-6">
+              {awards.map((award, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <Trophy className="w-8 h-8 text-yellow-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-lg text-portfolio-text-muted leading-relaxed">
+                      Em <strong>{award.year}</strong>, participei do{" "}
+                      <strong>{award.title}</strong>. {award.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </Section>
