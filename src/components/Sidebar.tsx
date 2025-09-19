@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import avatar from "../assets/avatar.jpg";
+import { Profile } from "../assets/images";
 
 interface SidebarProps {
   activeSection: string;
@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate }) => {
           <div className="text-center mb-8">
             <div className="mb-4">
               <img
-                src={avatar}
+                src={Profile}
                 alt="Hebert Montarroyos"
                 className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-tertiary"
               />
