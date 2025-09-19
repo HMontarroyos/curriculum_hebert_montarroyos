@@ -93,7 +93,7 @@ npm run dev
 <br>
 
 Para Inicializar o Projeto 
-Abrir [http://localhost:3000](http://localhost:8080) vizualizar no Navegador. 
+Abrir [http://localhost:8080](http://localhost:8080) vizualizar no Navegador. 
 
 <br>
 
